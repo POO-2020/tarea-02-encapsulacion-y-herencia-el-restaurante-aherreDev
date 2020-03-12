@@ -6,63 +6,63 @@ import ElementoPedido from "./ElementoPedido.model.js";
 import Precio from "./Precio.model.js";
 
 class Pedido {
-  fecha;
-  hora;
-  cliente;
-  elementosPedidos;
-  fullTotal;
+  _fecha;
+  _hora;
+  _cliente;
+  _elementosPedidos;
+  _fullTotal;
   /**
    * @param {Fecha} fecha
    * @param {Tiempo} hora
    * @param {Cliente} cliente
    * @param {Array.<ElementoPedido>} elementosPedidos
    */
-  constructor(fecha, hora, cliente, elementosPedidos) {
-    this.fecha = fecha;
-    this.hora = hora;
-    this.cliente = cliente;
-    this.elementosPedidos = elementosPedidos;
+  constructor({ fecha, hora, cliente, elementosPedidos }) {
+    this._fecha = fecha;
+    this._hora = hora;
+    this._cliente = cliente;
+    this._elementosPedidos = elementosPedidos;
   }
   getResumen = () => {
-    let { getFecha } = this.fecha;
-    let { getFormato24Horas } = this.hora;
+    let { getFecha } = this._fecha;
+    let { getFormato24Horas } = this._hora;
     let total = 0,
       cantidad = 0;
-    this.elementosPedidos.forEach(elemento => {
+    this._elementosPedidos.forEach(elemento => {
       total += elemento.getTotal();
       cantidad += elemento.getCantidad();
     });
-    this.fullTotal = new Precio(total);
+    this._fullTotal = new Precio(total);
     return `${getFecha()} ${getFormato24Horas()} ${
-      this.elementosPedidos.length
-    } con ${cantidad} productos -total ${this.fullTotal.getPrecio()}`;
+      this._elementosPedidos.length
+    } con ${cantidad} productos -total ${this._fullTotal.getPrecio()}`;
     // elementosPedidos[x],getCantidad();
   };
-  getNumeroElementos = () => this.elementosPedidos.length;
+  getNumeroElementos = () => this._elementosPedidos.length;
   getNumeroProductos = () => {
     let cantidad = 0;
-    this.elementosPedidos.forEach(elemento => {
+    this._elementosPedidos.forEach(elemento => {
       cantidad += elemento.getCantidad();
     });
     return cantidad;
   };
   getCostoTotal = () => {
     if (this.fullTotal) {
-      return this.fullTotal.getPrecio();
+      return this._fullTotal.getPrecio();
     } else {
       let total = 0;
-      this.elementosPedidos.forEach(elemento => {
+      this._elementosPedidos.forEach(elemento => {
         total += elemento.getTotal();
       });
-      this.fullTotal = new Precio(total);
-      return this.fullTotal.getPrecio();
+      this._fullTotal = new Precio(total);
+      return this._fullTotal.getPrecio();
     }
   };
   agregarElemento = elemento => {
-    this.elementosPedidos.push(elemento);
+    this._elementosPedidos.push(elemento);
   };
   listarElemento = () => {
-    this.elementosPedidos.forEach(elemento => {
+    this._elementosPedidos.forEach(elemento => {
       console.log(elemento.getDescripcion());
     });
   };
