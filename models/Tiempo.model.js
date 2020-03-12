@@ -1,28 +1,28 @@
 class Tiempo {
-  hora;
-  minuto;
-  periodo;
+  _hora;
+  _minuto;
+  _periodo;
   /**
    * @param {number} hora
    * @param {number} minuto
    * @param {string} periodo
    */
   constructor(hora, minuto, periodo) {
-    this.hora = hora;
-    this.minuto = minuto;
-    this.periodo = periodo;
+    this._hora = hora;
+    this._minuto = minuto;
+    this._periodo = periodo;
   }
   getFormato24Horas = () => {
     let format;
     if (this.periodo === "AM") {
-      format = `${this.hora}:${this.minuto}`;
+      format = `${this._hora}:${this._minuto}`;
     } else {
-      format = `${this.hora + 12}:${this.minuto}`;
+      format = `${this._hora + 12}:${this._minuto}`;
     }
     return format;
   };
   getFormato12Horas = () => {
-    return `${this.hora}:${this.minuto} ${this.periodo}`;
+    return `${this._hora}:${this._minuto} ${this._periodo}`;
   };
 }
 
