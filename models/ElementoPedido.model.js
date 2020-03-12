@@ -4,22 +4,22 @@ class ElementoPedido {
    * @property {Producto} producto
    * @prop {number} cantidad
    */
-  producto;
-  cantidad;
+  _producto;
+  _cantidad;
   _total;
   /**
    * @param {Producto} producto
    * @param {number} cantidad
    */
   constructor(producto, cantidad) {
-    this.producto = producto;
-    this.cantidad = cantidad;
+    this._producto = producto;
+    this._cantidad = cantidad;
   }
   getCantidad = () => this.cantidad;
   getDescripcion = () => {
-    let { getNombre } = this.producto;
-    return `${this.cantidad} x ${getNombre()} $${this.getTotal()}`;
+    let { getNombre } = this._producto;
+    return `${this._cantidad} x ${getNombre()} $${this.getTotal()}`;
   };
-  getTotal = () => this.producto.getPrecio() * this.cantidad;
+  getTotal = () => this._producto.getPrecio() * this._cantidad;
 }
 export default ElementoPedido;
