@@ -15,7 +15,7 @@ class ElementoPedido {
     this._producto = producto;
     this._cantidad = cantidad;
   }
-  getCantidad = () => this.cantidad;
+  getCantidad = () => this._cantidad;
   getDescripcion = () => {
     let { getNombre } = this._producto;
     return `${this._cantidad} x ${getNombre()} $${this.getTotal()}`;
