@@ -2,20 +2,20 @@
 import Precio from "./Precio.model.js";
 
 class Producto {
-  precio;
-  nombre;
+  _precio;
+  _nombre;
   constructor(precio, nombre) {
     /**
      * @param {Precio} precio
      */
-    this.precio = precio;
-    this.nombre = nombre;
+    this._precio = precio;
+    this._nombre = nombre;
   }
   getDescription = () => {
-    let { getPrecio } = this.precio;
-    return `${this.nombre} ${getPrecio()}`;
+    let { getPrecio } = this._precio;
+    return `${this._nombre} ${getPrecio()}`;
   };
-  getPrecio = () => this.precio.getRealPrecio();
-  getNombre = () => this.nombre;
+  getPrecio = () => this._precio.getRealPrecio();
+  getNombre = () => this._nombre;
 }
 export default Producto;
