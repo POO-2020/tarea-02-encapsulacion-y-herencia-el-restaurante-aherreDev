@@ -36,10 +36,10 @@ class Restaurante {
     let exist =
       this._pedidos.findIndex(pedido => pedido.getNumeroPedido() === numero) !==
       -1;
-    if (exist) {
+    if (!exist) {
       this._pedidos.push(pedido);
     }
-    return exist;
+    return !exist;
   };
   listarPedidos = () => {
     this._pedidos.forEach(pedido => {
