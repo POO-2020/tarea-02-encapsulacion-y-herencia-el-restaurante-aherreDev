@@ -3,15 +3,15 @@ const numbersWithCommas = x => {
 };
 
 class Precio {
-  precio;
+  _precio;
   /**
    * @param {numbre} precio
    */
   constructor(precio) {
-    if (precio !== null || precio !== undefined) this.precio = precio;
+    if (precio !== null || precio !== undefined) this._precio = precio;
   }
-  getPrecio = () => "$" + numbersWithCommas(this.precio);
-  getRealPrecio = () => this.precio;
+  getPrecio = () => "$" + numbersWithCommas(this._precio);
+  getRealPrecio = () => this._precio;
 }
 
 export default Precio;
