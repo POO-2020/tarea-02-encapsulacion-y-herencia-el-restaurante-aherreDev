@@ -2,22 +2,22 @@
 import Direccion from "./Direccion.model.js";
 
 class Cliente {
-  nombre;
-  direccion;
-  telefono;
+  _nombre;
+  _direccion;
+  _telefono;
   /**
    * @param {string} nombre
    * @param {Direccion} direccion
    * @param {string} telefono
    */
-  constructor(nombre, direccion, telefono) {
-    this.nombre = nombre;
-    this.direccion = direccion;
-    this.telefono = telefono;
+  constructor({ nombre, direccion, telefono }) {
+    this._nombre = nombre;
+    this._direccion = direccion;
+    this._telefono = telefono;
   }
   getPerfil = () => {
-    let { getFormatoLargo } = this.direccion;
-    return `${this.nombre}, ${getFormatoLargo()}, ${this.telefono}`;
+    let { getFormatoLargo } = this._direccion;
+    return `${this._nombre}, ${getFormatoLargo()}, ${this._telefono}`;
   };
 }
 
