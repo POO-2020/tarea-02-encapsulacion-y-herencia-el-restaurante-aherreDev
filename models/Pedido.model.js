@@ -11,17 +11,20 @@ class Pedido {
   _cliente;
   _elementosPedidos;
   _fullTotal;
+  _numeroPedido;
   /**
    * @param {Fecha} fecha
    * @param {Tiempo} hora
    * @param {Cliente} cliente
    * @param {Array.<ElementoPedido>} elementosPedidos
+   * @param {string} numeroPedido
    */
-  constructor({ fecha, hora, cliente, elementosPedidos }) {
+  constructor({ fecha, hora, cliente, elementosPedidos, numeroPedido }) {
     this._fecha = fecha;
     this._hora = hora;
     this._cliente = cliente;
     this._elementosPedidos = elementosPedidos;
+    this._numeroPedido = numeroPedido;
   }
   getResumen = () => {
     let { getFecha } = this._fecha;
@@ -66,5 +69,6 @@ class Pedido {
       console.log(elemento.getDescripcion());
     });
   };
+  getNumeroPedido = () => this._numeroPedido;
 }
 export default Pedido;
