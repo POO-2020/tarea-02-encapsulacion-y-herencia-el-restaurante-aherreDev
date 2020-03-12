@@ -15,7 +15,7 @@ class Direccion {
    * @param {string} ciudad
    * @param {string} municipio
    */
-  constructor({ calle, numInt = null, numExt, col, cp, ciudad, municipio }) {
+  constructor(calle, numInt = null, numExt, col, cp, ciudad, municipio) {
     this._calle = calle;
     this._numInt = numInt;
     this._numExt = numExt;
